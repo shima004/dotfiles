@@ -14,7 +14,7 @@
 
 
 # # change the default shell to zsh
-# chsh -s $(which zsh)
+# 
 
 # # restart the shell
 # exec zsh
@@ -32,15 +32,16 @@ function check_pkg_manager() {
     fi
 }
 
-function install_font(){
-  if [ ! -d "$HOME/.fonts/MoralerspaceNeonNF-Regular.ttf" ]; then
-    mkdir -p $HOME/.fonts
-    curl -L https://github.com/yuru7/moralerspace/releases/download/v1.0.0/MoralerspaceHW_v1.0.0.zip -o /tmp/MoralerspaceHW_v1.0.0.zip
-    unzip /tmp/MoralerspaceHW_v1.0.0.zip -d $HOME/.fonts
-    rm -f /tmp/MoralerspaceHW_v1.0.0.zip
-    fc-cache -f -v
-    echo -e "\e[36mInstalled MoralerspaceHW font\e[m\n"
-  fi
+function create_symlinks() {
+    # create simbolic links to the dotfiles in the home directory
+    for file in .zshrc .zshenv; do
+        ln -s $PWD/$file ~/$file
+    done
+
+    # create simbolic links to the dotfiles in the .zsh directory
+    for file in .zsh .config; do
+        ln -s $PWD/$file ~/$file
+    done
 }
 
 function install_packages() {
@@ -65,17 +66,17 @@ function install_sheldon() {
     fi
 }
 
-function create_symlinks() {
-    # create simbolic links to the dotfiles in the home directory
-    for file in .zshrc .zshenv; do
-        ln -s $PWD/$file ~/$file
-    done
-
-    # create simbolic links to the dotfiles in the .zsh directory
-    for file in .zsh .config; do
-        ln -s $PWD/$file ~/$file
-    done
+function install_font(){
+  if [ ! -d "$HOME/.fonts/MoralerspaceNeonNF-Regular.ttf" ]; then
+    mkdir -p $HOME/.fonts
+    curl -L https://github.com/yuru7/moralerspace/releases/download/v1.0.0/MoralerspaceHW_v1.0.0.zip -o /tmp/MoralerspaceHW_v1.0.0.zip
+    unzip /tmp/MoralerspaceHW_v1.0.0.zip -d $HOME/.fonts
+    rm -f /tmp/MoralerspaceHW_v1.0.0.zip
+    fc-cache -f -v
+    echo -e "\e[36mInstalled MoralerspaceHW font\e[m\n"
+  fi
 }
+
 
 check_pkg_manager
 create_symlinks
@@ -83,3 +84,5 @@ install_packages
 install_sheldon
 install_starship
 install_font
+
+chsh -s $(which zsh)
