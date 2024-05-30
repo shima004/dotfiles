@@ -1,0 +1,1 @@
+/root/dotfilse/.zsh
