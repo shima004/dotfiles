@@ -10,5 +10,6 @@ export HISTSIZE=10000
 export SAVEHIST=10000
 setopt SHARE_HISTORY
 
-
-eval "$(sheldon source)"
+if command -v sheldon >/dev/null 2>&1; then
+  eval "$(sheldon source)"
+fi
