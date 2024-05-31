@@ -89,11 +89,10 @@ function install_by_cargo() {
   fi
 }
 
-source ~/.zshrc
+source $HOME/.zshrc
 
-mise i --verbose --yes --jobs 1
+mise i --yes
 
 install_by_cargo lsd
 install_by_cargo bat
 install_by_cargo ripgrep rg
-

@@ -25,7 +25,7 @@ github = "zsh-users/zsh-autosuggestions"
 inline = 'eval "$(starship init zsh)"'
 
 [plugins.mise]
-inline = 'eval "$(mise activate zsh)"'
+inline = 'eval "$(mise activate zsh)" && eval "$(mise activate --shims)"'
 
 # For example:
 #

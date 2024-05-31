@@ -59,4 +59,4 @@ create_symlinks
 install_zsh
 
 # run the install script
-./install/install.sh
+$PWD/install/install.sh

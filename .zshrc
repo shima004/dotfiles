@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
 
 # load .zsh directory
 for file in ~/.zsh/*.zsh; do
