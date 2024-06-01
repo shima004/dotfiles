@@ -10,7 +10,6 @@ function check_pkg_manager() {
   elif command -v apt >/dev/null 2>&1; then
     echo -e "\e[36mVerified package manager: $(apt --version)\e[m\n"
     apt-get update -y && apt-get upgrade -y
-    apt-get update 
   else
     info_message "No supported package manager found. Please install apt or brew."
     exit 1
