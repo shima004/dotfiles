@@ -1,3 +1,7 @@
 [tools]
 rust = "latest"
-# go = "latest"
+go = "latest"
+python = "latest"
+
+[settings]
+http_timeout = 180
