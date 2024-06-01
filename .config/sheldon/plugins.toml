@@ -24,13 +24,14 @@ github = "zsh-users/zsh-autosuggestions"
 [plugins.zsh-completions]
 github = "zsh-users/zsh-completions"
 
+[plugins.zsh-syntax-highlighting]
+github = "zsh-users/zsh-syntax-highlighting"
+
+[plugins.zsh-history-substring-search]
+github = "zsh-users/zsh-history-substring-search"
+
 [plugins.starship]
 inline = 'eval "$(starship init zsh)"'
 
 [plugins.mise]
 inline = 'eval "$(mise activate zsh)" && eval "$(mise activate --shims)"'
-
-# For example:
-#
-# [plugins.base16]
-# github = "chriskempson/base16-shell"
