@@ -54,8 +54,13 @@ function install_zsh() {
   fi
 }
 
+# check if the package manager is installed
 check_pkg_manager
+
+# create the symbolic links
 create_symlinks
+
+# install zsh
 install_zsh
 
 # run the install script
