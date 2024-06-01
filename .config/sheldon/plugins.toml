@@ -21,6 +21,9 @@ github = "romkatv/zsh-defer"
 [plugins.zsh-autosuggestions]
 github = "zsh-users/zsh-autosuggestions"
 
+[plugins.zsh-completions]
+github = "zsh-users/zsh-completions"
+
 [plugins.starship]
 inline = 'eval "$(starship init zsh)"'
 
