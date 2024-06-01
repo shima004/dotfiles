@@ -1,13 +1,15 @@
-#!/bin/bash
+#!/usr/bin/env zsh
 
-# update and upgrade the package list
-apt-get update -y && apt-get upgrade -y
+source $PWD/install/functions.sh
 
-# install packages
+# install general packages
+info_message "Installing general packages"
 apt-get install curl wget gpg git unzip fontconfig build-essential -y
 
 # install tzdata
+info_message "Installing tzdata"
 DEBIAN_FRONTEND=noninteractive TZ=Asia/Tokyo apt-get install -y tzdata && ln -fs /usr/share/zoneinfo/$TZ /etc/localtime && dpkg-reconfigure --frontend noninteractive tzdata
 
 # install cli tools
-apt-get install vim -y
+info_message "Installing cli tools"
+apt-get install vim fzf tmux -y

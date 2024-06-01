@@ -1,24 +1,14 @@
 #!/usr/bin/env zsh
 
-function info_message(){
-  echo -e "\e[36m$1\e[m\n"
-} 
-
-function error_message(){
-  echo -e "\e[31m$1\e[m\n"
-}
-
-function success_message(){
-  echo -e "\e[32m$1\e[m\n"
-}
+source $PWD/install/functions.sh
 
 function install_packages() {
   if command -v brew >/dev/null 2>&1; then
     $PWD/install/brew.sh
-    info_message "Installed brew packages"
+    success_message "Installed brew packages"
   elif command -v apt >/dev/null 2>&1; then
     $PWD/install/apt.sh
-    info_message "Installed apt packages"
+    success_message "Installed apt packages"
   fi
 }
 
