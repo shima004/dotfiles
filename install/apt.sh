@@ -12,4 +12,4 @@ DEBIAN_FRONTEND=noninteractive TZ=Asia/Tokyo apt-get install -y tzdata && ln -fs
 
 # install cli tools
 info_message "Installing cli tools"
-apt-get install vim fzf tmux -y
+apt-get install vim fzf tmux htop -y
