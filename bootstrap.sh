@@ -20,16 +20,28 @@ function check_pkg_manager() {
 function create_symlinks() {
   # create simbolic links to the dotfiles in the home directory
   for file in .zshrc .zshenv; do
+    # backup the existing dotfiles
+    if [ -f ~/$file ]; then
+      mv ~/$file ~/$file.bak
+    fi
     ln -sf $PWD/$file ~/$file
   done
 
   # create simbolic links to the dotfiles in the .zsh directory
   for file in .zsh .config; do
+    # backup the existing dotfiles
+    if [ -d ~/$file ]; then
+      mv ~/$file ~/$file.bak
+    fi
     ln -sf $PWD/$file ~/$file
   done
   # create simbolic links to the vscode settings
   os=$(uname)
   if [[ "$os" == "Darwin" ]]; then
+    if [ -d $HOME/Library/Application\ Support/Code/User ]; then
+      mv $HOME/Library/Application\ Support/Code/User/settings.json $HOME/Library/Application\ Support/Code/User/settings.json.bak
+      mv $HOME/Library/Application\ Support/Code/User/keybindings.json $HOME/Library/Application\ Support/Code/User/keybindings.json.bak
+    fi
     ln -sf $HOME/.config/Code/User/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
     ln -sf $HOME/.config/Code/User/keybindings.json $HOME/Library/Application\ Support/Code/User/keybindings.json
   fi
