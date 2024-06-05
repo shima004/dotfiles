@@ -23,7 +23,11 @@ function install_starship() {
 
 function install_sheldon() {
   if ! command -v sheldon >/dev/null 2>&1; then
-    curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh | bash -s -- --repo rossmacarthur/sheldon --to /usr/local/bin
+    if command -v brew >/dev/null 2>&1; then
+      brew install sheldon
+    else
+      curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh | bash -s -- --repo rossmacarthur/sheldon --to /usr/local/bin
+    fi
     success_message "Installed sheldon"
   else
     info_message "Already installed sheldon"
@@ -41,15 +45,15 @@ function install_mise() {
 
 function install_font(){
   local readonly font_version="v1.0.1"
-  if [[ ! -d "$HOME/.fonts/MoralerspaceHW_$font_version" ]]; then
+  if [[ ! -d "$HOME/.fonts/MoralerspaceNF_$font_version" ]]; then
     mkdir -p $HOME/.fonts
-    curl -L https://github.com/yuru7/moralerspace/releases/download/$font_version/MoralerspaceHW_$font_version.zip -o /tmp/MoralerspaceHW.zip
-    unzip -o /tmp/MoralerspaceHW.zip -d $HOME/.fonts
-    rm -f /tmp/MoralerspaceHW.zip
+    curl -L https://github.com/yuru7/moralerspace/releases/download/$font_version/MoralerspaceNF_$font_version.zip -o /tmp/MoralerspaceNF.zip
+    unzip -o /tmp/MoralerspaceNF.zip -d $HOME/.fonts
+    rm -f /tmp/MoralerspaceNF.zip
     fc-cache -f -v
-    success_message "Installed MoralerspaceHW font"
+    success_message "Installed MoralerspaceNF font"
   else
-    info_message "Already installed MoralerspaceHW font"
+    info_message "Already installed MoralerspaceNF font"
   fi
 }
 
