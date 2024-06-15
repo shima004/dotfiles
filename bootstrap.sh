@@ -10,7 +10,7 @@ function check_pkg_manager() {
     brew update && brew upgrade
   elif command -v apt >/dev/null 2>&1; then
     echo -e "\e[36mVerified package manager: $(apt --version)\e[m\n"
-    apt-get update -y && apt-get upgrade -y
+    sudo apt-get update -y && sudo apt-get upgrade -y
   else
     info_message "No supported package manager found. Please install apt or brew."
     exit 1
@@ -62,7 +62,7 @@ function install_zsh() {
     if command -v brew >/dev/null 2>&1; then
       brew install zsh
     elif command -v apt >/dev/null 2>&1; then
-      apt-get install zsh -y
+      sudo apt-get install zsh -y
     else
       info_message "No supported package manager found. Please install apt or brew."
       exit 1
