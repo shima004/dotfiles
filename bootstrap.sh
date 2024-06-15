@@ -7,6 +7,7 @@ function info_message(){
 function check_pkg_manager() {
   if command -v brew >/dev/null 2>&1; then
     echo -e "\e[36mVerified package manager: $(brew --version)\e[m\n"
+    brew update && brew upgrade
   elif command -v apt >/dev/null 2>&1; then
     echo -e "\e[36mVerified package manager: $(apt --version)\e[m\n"
     apt-get update -y && apt-get upgrade -y
@@ -20,26 +21,35 @@ function create_symlinks() {
   # create simbolic links to the dotfiles in the home directory
   for file in .zshrc .zshenv; do
     # backup the existing dotfiles
-    if [ -f ~/$file ]; then
-      mv ~/$file ~/$file.bak
+    if [ -L ~/$file ]; then
+      rm ~/$file
+      info_message "Removed existing symbolic link: $file"
+    elif [ -f ~/$file ]; then
+      mv ~/$file ~/$file.$(date +%Y%m%d%H%M%S).backup
+      info_message "Backed up existing dotfile: $file"
     fi
     ln -sf $PWD/$file ~/$file
   done
 
-  # create simbolic links to the dotfiles in the .zsh directory
+  # create symbolic links to the dotfiles in the .zsh directory
   for file in .zsh .config; do
     # backup the existing dotfiles
-    if [ -d ~/$file ]; then
-      mv ~/$file ~/$file.bak
+    if [ -L ~/$file ]; then
+      rm ~/$file
+      info_message "Removed existing symbolic link: $file"
+    elif [ -d ~/$file ]; then
+      mv ~/$file ~/$file.$(date +%Y%m%d%H%M%S).backup
+      info_message "Backed up existing dotfile: $file"
     fi
     ln -sf $PWD/$file ~/$file
   done
-  # create simbolic links to the vscode settings
+
   os=$(uname)
   if [[ "$os" == "Darwin" ]]; then
     if [ -d $HOME/Library/Application\ Support/Code/User ]; then
-      mv $HOME/Library/Application\ Support/Code/User/settings.json $HOME/Library/Application\ Support/Code/User/settings.json.bak
-      mv $HOME/Library/Application\ Support/Code/User/keybindings.json $HOME/Library/Application\ Support/Code/User/keybindings.json.bak
+      mv $HOME/Library/Application\ Support/Code/User/settings.json $HOME/Library/Application\ Support/Code/User/settings.json.$(date +%Y%m%d%H%M%S).backup
+      mv $HOME/Library/Application\ Support/Code/User/keybindings.json $HOME/Library/Application\ Support/Code/User/keybindings.json.$(date +%Y%m%d%H%M%S).backup
+      info "Backed up existing settings.json and keybindings.json"
     fi
     ln -sf $HOME/.config/Code/User/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
     ln -sf $HOME/.config/Code/User/keybindings.json $HOME/Library/Application\ Support/Code/User/keybindings.json

@@ -6,5 +6,5 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 
 # ls to lsd
-alias ls="lsd -A"
+alias ls="lsd"
 alias ll="lsd -al"
