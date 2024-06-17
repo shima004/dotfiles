@@ -43,17 +43,6 @@ function create_symlinks() {
     fi
     ln -sf $PWD/$file ~/$file
   done
-
-  os=$(uname)
-  if [[ "$os" == "Darwin" ]]; then
-    if [ -d $HOME/Library/Application\ Support/Code/User ]; then
-      mv $HOME/Library/Application\ Support/Code/User/settings.json $HOME/Library/Application\ Support/Code/User/settings.json.$(date +%Y%m%d%H%M%S).backup
-      mv $HOME/Library/Application\ Support/Code/User/keybindings.json $HOME/Library/Application\ Support/Code/User/keybindings.json.$(date +%Y%m%d%H%M%S).backup
-      info "Backed up existing settings.json and keybindings.json"
-    fi
-    ln -sf $HOME/.config/Code/User/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
-    ln -sf $HOME/.config/Code/User/keybindings.json $HOME/Library/Application\ Support/Code/User/keybindings.json
-  fi
   info_message "Created symbolic links"
 }
 
