@@ -4,4 +4,4 @@ go = "latest"
 python = "latest"
 
 [settings]
-http_timeout = 180
+http_timeout = 600
