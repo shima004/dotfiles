@@ -1,0 +1,9 @@
+# ignore all files in this directory
+*
+
+# global configuration file
+!.gitignore
+!mise
+!sheldon
+!starship
+!github
