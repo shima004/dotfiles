@@ -38,7 +38,7 @@ apply = ["defer"]
 inline = 'eval "$(starship init zsh)"'
 
 [plugins.mise]
-inline = 'eval "$(mise activate zsh)" && eval "$(mise activate --shims)"'
+inline = 'eval "$(mise activate zsh)"'
 
 [plugins.compinit]
 inline = 'autoload -Uz compinit && compinit'
