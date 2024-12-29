@@ -44,7 +44,7 @@ function install_mise() {
 }
 
 function install_font(){
-  local readonly font_version="v1.0.1"
+  local readonly font_version="v1.0.2"
   if [[ ! -d "$HOME/.fonts/MoralerspaceNF_$font_version" ]]; then
     mkdir -p $HOME/.fonts
     curl -L https://github.com/yuru7/moralerspace/releases/download/$font_version/MoralerspaceNF_$font_version.zip -o /tmp/MoralerspaceNF.zip
