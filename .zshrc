@@ -10,6 +10,9 @@ export HISTSIZE=10000
 export SAVEHIST=10000
 setopt SHARE_HISTORY
 
+# completion
+fpath=($fpath ~/.zsh/completions)
+
 # activate sheldon
 if command -v sheldon >/dev/null 2>&1; then
   eval "$(sheldon source)"

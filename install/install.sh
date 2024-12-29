@@ -90,3 +90,6 @@ mise i --yes
 install_by_cargo lsd
 install_by_cargo bat
 install_by_cargo ripgrep rg
+install_by_cargo zellij
+
+zellij setup --generate-completion zsh > ~/.config/zsh/completions/_zellij
