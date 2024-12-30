@@ -87,6 +87,8 @@ source $HOME/.zshrc
 
 mise i --yes
 
+mise doctor
+
 install_by_cargo lsd
 install_by_cargo bat
 install_by_cargo ripgrep rg
