@@ -87,7 +87,7 @@ source $HOME/.zshrc
 
 mise i --yes
 
-mise doctor
+sleep 10
 
 install_by_cargo lsd
 install_by_cargo bat
