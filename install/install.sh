@@ -87,8 +87,6 @@ source $HOME/.zshrc
 
 mise i --yes
 
-sleep 10
-
 install_by_cargo lsd
 install_by_cargo bat
 install_by_cargo ripgrep rg
