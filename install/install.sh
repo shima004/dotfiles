@@ -87,6 +87,8 @@ source $HOME/.zshrc
 
 mise i --yes
 
+eval "$(mise activate zsh)"
+
 install_by_cargo lsd
 install_by_cargo bat
 install_by_cargo ripgrep rg
