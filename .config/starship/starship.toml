@@ -172,3 +172,7 @@ symbol = " "
 
 [zig]
 symbol = " "
+
+[gcloud]
+format = '[$symbol$active]($style) '
+style = 'bold blue'
