@@ -94,4 +94,6 @@ install_by_cargo bat
 install_by_cargo ripgrep rg
 install_by_cargo zellij
 
+mkdir -p ~/.config/zsh/completions
+
 zellij setup --generate-completion zsh > ~/.config/zsh/completions/_zellij
