@@ -1,7 +1,9 @@
 {
-  system = "x86_64-linux"; # x86_64-linux / aarch64-linux / x86_64-darwin / aarch64-darwin
+  # Linux:  x86_64-linux / aarch64-linux
+  # macOS:  x86_64-darwin / aarch64-darwin
+  system = "x86_64-linux";
   username = "your-username";
-  homeDirectory = "/home/your-username";
+  homeDirectory = "/home/your-username"; # macOS: /Users/your-username
 
   git = {
     name = "Your Name";
