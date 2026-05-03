@@ -3,6 +3,3 @@
 !home-manager/
 !home-manager/**
 !.gitignore
-
-# home-manager内の特定のファイルを無視
-home-manager/user.nix
