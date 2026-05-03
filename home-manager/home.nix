@@ -83,6 +83,7 @@
   '';
 
   home.activation.refreshFonts = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    ${pkgs.fontconfig}/bin/fc-cache -f
+    FONTCONFIG_FILE="${pkgs.fontconfig.out}/etc/fonts/fonts.conf" \
+      ${pkgs.fontconfig}/bin/fc-cache -f "$HOME/.local/share/fonts"
   '';
 }

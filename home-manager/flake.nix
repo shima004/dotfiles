@@ -28,7 +28,7 @@
       };
     }
     // (if isDarwin then {
-      darwinConfigurations."${userConfig.username}" = nix-darwin.lib.darwinSystem {
+      darwinConfigurations."${userConfig.hostname}" = nix-darwin.lib.darwinSystem {
         system = userConfig.system;
         modules = [ ./darwin.nix ];
         specialArgs = { inherit userConfig; };
