@@ -31,11 +31,16 @@ sh <(curl -L https://nixos.org/nix/install) --no-daemon
 experimental-features = nix-command flakes
 ```
 
-## 2. Home Manager のインストール
+## 2. Home Manager の初回適用
+
+初回は `home-manager` コマンドがないため、`nix run` 経由でフレークを直接指定して実行する。
 
 ```bash
-nix run home-manager/master -- init
+nix run home-manager/master -- switch --flake ~/.config/home-manager
 ```
+
+これにより Home Manager 自体も管理対象になり（`programs.home-manager.enable = true`）、
+以降は `home-manager switch` が使えるようになる。
 
 ## 3. このリポジトリをクローンする
 

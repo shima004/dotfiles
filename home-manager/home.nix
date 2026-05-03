@@ -58,7 +58,7 @@
     # ----- Kubernetes -----
     kubie # kubectlコンテキスト・namespace切り替えツール
     kubectl # Kubernetesクラスタ操作CLIツール
-    helm # Kubernetesパッケージマネージャ
+    kubernetes-helm # Kubernetesパッケージマネージャ
     helmfile # Helmチャートの管理・デプロイツール
   ];
 
