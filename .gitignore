@@ -1,0 +1,8 @@
+# Home Manager以外をすべて無視
+*
+!home-manager/
+!home-manager/**
+!.gitignore
+
+# home-manager内の特定のファイルを無視
+home-manager/user.nix
