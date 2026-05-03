@@ -74,6 +74,7 @@
 
   home.sessionVariables = {
     SHELL = "${pkgs.zsh}/bin/zsh";
+    SSH_AUTH_SOCK = "${userConfig.homeDirectory}/.bitwarden-ssh-agent.sock";
   };
 
   home.activation.addZshToShells = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
