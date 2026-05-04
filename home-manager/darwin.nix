@@ -28,7 +28,19 @@
       "visual-studio-code"
       "warp"
       "bitwarden"
+      "karabiner-elements"
     ];
+  };
+
+  system.defaults = {
+    NSGlobalDomain."com.apple.swipescrolldirection" = false;
+    finder = {
+      AppleShowAllFiles = true;
+      AppleShowAllExtensions = true;
+    };
+    menuExtraClock.ShowSeconds = true;
+    controlcenter.BatteryShowPercentage = true;
+    dock.show-recents = false;
   };
 
   system.stateVersion = 5;

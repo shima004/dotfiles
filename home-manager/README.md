@@ -20,16 +20,9 @@ curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix 
 source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
 ```
 
-<details>
-<summary>公式インストーラーを使う場合</summary>
-
-```bash
-sh <(curl -L https://nixos.org/nix/install) --no-daemon
-```
-
 公式インストーラーの場合は flakes が無効なので `~/.config/nix/nix.conf` に追記する。
 
-```
+```bash
 experimental-features = nix-command flakes
 ```
 
@@ -138,15 +131,15 @@ home-manager switch
 
 ## user.nix の設定項目
 
-| キー | 説明 |
-|------|------|
-| `system` | `x86_64-linux` / `aarch64-linux` / `aarch64-darwin` / `x86_64-darwin` |
-| `username` | ユーザー名 |
-| `homeDirectory` | Linux: `/home/username`、macOS: `/Users/username` |
-| `git.name` | git のユーザー名 |
-| `git.email` | git のメールアドレス |
-| `git.signingKey` | コミット署名用 SSH 公開鍵 |
-| `gitlab.*` | GitLab 用の設定（不要なら削除可） |
+| キー             | 説明                                                                  |
+| ---------------- | --------------------------------------------------------------------- |
+| `system`         | `x86_64-linux` / `aarch64-linux` / `aarch64-darwin` / `x86_64-darwin` |
+| `username`       | ユーザー名                                                            |
+| `homeDirectory`  | Linux: `/home/username`、macOS: `/Users/username`                     |
+| `git.name`       | git のユーザー名                                                      |
+| `git.email`      | git のメールアドレス                                                  |
+| `git.signingKey` | コミット署名用 SSH 公開鍵                                             |
+| `gitlab.*`       | GitLab 用の設定（不要なら削除可）                                     |
 
 ## 注意
 
