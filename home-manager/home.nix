@@ -60,6 +60,9 @@
     kubectl # Kubernetesクラスタ操作CLIツール
     kubernetes-helm # Kubernetesパッケージマネージャ
     helmfile # Helmチャートの管理・デプロイツール
+
+    # ----- Compilers and build tools -----
+    gcc
   ];
 
   home.file = {
