@@ -1,4 +1,9 @@
-{ config, pkgs, userConfig, ... }:
+{
+  config,
+  pkgs,
+  userConfig,
+  ...
+}:
 
 {
   programs.git = {
@@ -19,9 +24,10 @@
       pull.rebase = true;
       init.defaultBranch = "main";
 
+      ghq.user = userConfig.git.name;
+
       includeIf = {
-        "hasconfig:remote.*.url:git@${userConfig.gitlab.host}:*/**".path =
-          "~/.config/git/gitconfig-gitlab";
+        "hasconfig:remote.*.url:git@${userConfig.gitlab.host}:*/**".path = "~/.config/git/gitconfig-gitlab";
         "hasconfig:remote.*.url:https://${userConfig.gitlab.host}/**".path =
           "~/.config/git/gitconfig-gitlab";
       };
