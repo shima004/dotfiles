@@ -29,7 +29,7 @@
       "warp"
       "bitwarden"
       "karabiner-elements"
-      "slack"
+      "docker"
     ];
   };
 
