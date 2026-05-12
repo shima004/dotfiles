@@ -39,6 +39,7 @@
     ghq # Gitリポジトリ一元管理ツール
     git-wt # git worktreeを便利に操作するツール
     socat # 汎用ネットワークツール（ポート転送・プロキシなど）
+    go-task # タスクランナー（Makefile代替・Go製）
 
     # ----- Programing languages -----
     go # Goプログラミング言語
