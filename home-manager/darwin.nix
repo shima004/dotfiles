@@ -31,6 +31,7 @@
       "karabiner-elements"
       "docker-desktop"
       "discord"
+      "microsoft-teams"
     ];
   };
 
