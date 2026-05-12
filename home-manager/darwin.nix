@@ -29,7 +29,8 @@
       "warp"
       "bitwarden"
       "karabiner-elements"
-      "docker"
+      "docker-desktop"
+      "discord"
     ];
   };
 
