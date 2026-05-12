@@ -14,7 +14,7 @@
       gcd = "cd $(ghq list --full-path | fzf)";
       gcv = "code $(ghq list --full-path | fzf)";
       nix-home-manager-rebuild = "home-manager switch --flake ~/.config/home-manager";
-      nix-darwin-rebuild = "darwin-rebuild switch --flake ~/.config/home-manager";
+      nix-darwin-rebuild = "sudo darwin-rebuild switch --flake ~/.config/home-manager";
     };
     history = {
       size = 10000;
