@@ -25,6 +25,7 @@
     casks = [
       "google-chrome"
       "claude"
+      "chatgpt"
       "visual-studio-code"
       "warp"
       "bitwarden"
