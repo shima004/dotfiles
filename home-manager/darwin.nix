@@ -33,6 +33,7 @@
       "docker-desktop"
       "discord"
       "microsoft-teams"
+      "cloudflare-warp"
     ];
   };
 
