@@ -91,4 +91,20 @@
     FONTCONFIG_FILE="${pkgs.fontconfig.out}/etc/fonts/fonts.conf" \
       ${pkgs.fontconfig}/bin/fc-cache -f "$HOME/.local/share/fonts"
   '';
+
+  home.activation.configureNpm = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    npmrc="$HOME/.npmrc"
+
+    if [ -e "$npmrc" ] && [ ! -f "$npmrc" ]; then
+      echo "Skipping npm config: $npmrc exists but is not a regular file"
+    else
+      ${pkgs.coreutils}/bin/touch "$npmrc"
+
+      if ${pkgs.gnugrep}/bin/grep -q '^min-release-age=' "$npmrc"; then
+        ${pkgs.gnused}/bin/sed -i 's/^min-release-age=.*/min-release-age=7/' "$npmrc"
+      else
+        printf '\nmin-release-age=7\n' >> "$npmrc"
+      fi
+    fi
+  '';
 }
